@@ -6,7 +6,8 @@ class Intro extends Component {
     super(props);
 
     this.state={
-      hide: '',
+      classes: 'intro center',
+      hide:null,
       showFirst: false,
       showSecond: false,
     };
@@ -27,7 +28,13 @@ class Intro extends Component {
 
   //for fade out animation and call next after transition ended
   exitScence=()=>{
-    this.setState({hide: 'fade'});
+    var temp=this.state.classes;
+    var trigger=this.props.next;
+    temp+=' fade';
+    this.setState({
+      classes: temp,
+      hide: trigger
+    });
   }
 
   showFirstButton=()=>{
@@ -40,7 +47,7 @@ class Intro extends Component {
 
   render() {
     return (
-      <div className={this.state.hide} onTransitionEnd={this.props.next}>
+      <div className={this.state.classes} onTransitionEnd={this.state.hide}>
         <h1>
           <Typist
             avgTypingSpeed={40}
@@ -54,12 +61,14 @@ class Intro extends Component {
           </Typist>
         </h1>
 
-        {this.state.showFirst ? (
-          <a onClick={this.exitScence}>Good</a>
-        ) : null}
-        {this.state.showSecond ? (
-          <a onClick={this.exitScence}>Great</a>
-        ) : null}
+        <div className='button-holder'>
+          {this.state.showFirst ? (
+            <a onClick={this.exitScence}>Good</a>
+          ) : null}
+          {this.state.showSecond ? (
+            <a onClick={this.exitScence}>Great</a>
+          ) : null}
+        </div>
       </div>
     );
   }

@@ -35,7 +35,6 @@ class App extends Component {
 
         {/* <a onClick={this.reset}>Reset</a>
         {this.state.step} */}
-        <br/>
       </div>
     );
   }

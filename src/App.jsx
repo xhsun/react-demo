@@ -18,21 +18,23 @@ class App extends Component {
   next(){
     var newStep=this.state.step;
     newStep++;
-    //if newStep is less than total
     this.setState({ step: newStep });
-    //clear canvas and show next
   }
 
   //reset canvas
   reset() {
     this.setState({ step: 0 });
-    //reset canvas
   }
 
   render() {
     return (
       <div className="App">
-        <Intro next={this.next}/>
+        {this.state.step === 0 ? (
+          <Intro next={this.next}/>
+        ) : null}
+
+        {/* <a onClick={this.reset}>Reset</a>
+        {this.state.step} */}
         <br/>
       </div>
     );
@@ -40,15 +42,51 @@ class App extends Component {
 }
 
 class Intro extends Component {
-  //TODO only show button after text done type out
+  constructor(props){
+    super(props);
+
+    this.state={
+      hide: '',
+      showFirst: false,
+      showSecond: false,
+    };
+    this.doneTyping=this.doneTyping.bind(this);
+  }
+
+  //typewriter effect is done, show buttons
+  doneTyping(){
+    var current=this;
+    var time=900;
+    setTimeout(function() {
+            current.showFirstButton();
+        }, time);
+    setTimeout(function() {
+            current.showSecondButton();
+        }, time*2);
+  }
+
+  //for fade out animation and call next after transition ended
+  exitScence=()=>{
+    this.setState({hide: 'fade'});
+  }
+
+  showFirstButton=()=>{
+    this.setState({showFirst : true});
+  }
+
+  showSecondButton=()=>{
+    this.setState({showSecond : true});
+  }
+
   render() {
     return (
-      <div>
+      <div className={this.state.hide} onTransitionEnd={this.props.next}>
         <h1>
           <Typist
             avgTypingSpeed={40}
             startDelay={1000}
             cursor={{ hideWhenDone: true }}
+            onTypingDone={this.doneTyping}
           >
             Hi there!
             <br/>
@@ -56,12 +94,13 @@ class Intro extends Component {
             <br/>
           </Typist>
         </h1>
-        <button onClick={this.props.next}>
-          Good
-        </button>
-        <button onClick={this.props.next}>
-          Great!
-        </button>
+
+        {this.state.showFirst ? (
+          <a onClick={this.exitScence}>Good</a>
+        ) : null}
+        {this.state.showSecond ? (
+          <a onClick={this.exitScence}>Great</a>
+        ) : null}
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Intro from './comp/Intro.jsx';
 import './sass/main.css';
+import Clear from './assets/clear.svg';
 
 class App extends Component {
   constructor(props){
@@ -27,8 +28,11 @@ class App extends Component {
   }
 
   render() {
+    // TODO change following link to the actual link of this project
+    var projectLink="http://www.xhsun.me";
     return (
       <div className="App">
+        <a className="exit" href={projectLink}><img src={Clear}/></a>
         {this.state.step === 0 ? (
           <Intro next={this.next}/>
         ) : null}

@@ -63,10 +63,10 @@ class Intro extends Component {
 
         <div className='button-holder'>
           {this.state.showFirst ? (
-            <a onClick={this.exitScence}>Good</a>
+            <a className="button" onClick={this.exitScence}>Good</a>
           ) : null}
           {this.state.showSecond ? (
-            <a onClick={this.exitScence}>Great</a>
+            <a className="button" onClick={this.exitScence}>Great</a>
           ) : null}
         </div>
       </div>

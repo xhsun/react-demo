@@ -2,7 +2,7 @@
   "name": "react-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wwwxhsun.me/react-demo",
+  "homepage": "http://www.xhsun.me/react-demo/",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "node-sass-chokidar": "0.0.3",

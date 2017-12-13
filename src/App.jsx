@@ -32,7 +32,7 @@ class App extends Component {
     var projectLink="http://www.xhsun.me";
     return (
       <div className="App">
-        <a className="exit" href={projectLink}><img src={Clear}/></a>
+        <a className="exit" href={projectLink}><img src={Clear} alt="exit"/></a>
         {this.state.step === 0 ? (
           <Intro next={this.next}/>
         ) : null}

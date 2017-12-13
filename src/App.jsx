@@ -37,8 +37,8 @@ class App extends Component {
           <Intro next={this.next}/>
         ) : null}
 
-        {/* <a onClick={this.reset}>Reset</a>
-        {this.state.step} */}
+        <a onClick={this.reset}>Reset</a>
+        {this.state.step}
       </div>
     );
   }

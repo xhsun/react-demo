@@ -28,7 +28,7 @@ class Intro extends Component {
   }
 
   //for fade out animation and hide current scence
-  exitScence=()=>{
+  exitScene=()=>{
     var temp=this.state.classes;
     var trigger=this.hideSelf;
     temp+=' fade';
@@ -70,10 +70,10 @@ class Intro extends Component {
 
         <div className='button-holder'>
           {this.state.showFirst ? (
-            <a className="button" onClick={this.exitScence}>Good</a>
+            <a className="button" onClick={this.exitScene}>Good</a>
           ) : null}
           {this.state.showSecond ? (
-            <a className="button" onClick={this.exitScence}>Great</a>
+            <a className="button" onClick={this.exitScene}>Great</a>
           ) : null}
         </div>
       </div> ) : <IntroResponse next={this.props.next}/>;
@@ -92,11 +92,11 @@ class IntroResponse extends Component {
       hide: null,
     };
 
-    this.exitScence=this.exitScence.bind(this);
+    this.exitScene=this.exitScene.bind(this);
   }
 
   //for fade out animation and call next after transition ended
-  exitScence(){
+  exitScene(){
     var time=1100;
     var current=this;
     var trigger=this.props.next;
@@ -118,7 +118,7 @@ class IntroResponse extends Component {
             avgTypingSpeed={5}
             startDelay={200}
             cursor={{ hideWhenDone: true }}
-            onTypingDone={this.exitScence}
+            onTypingDone={this.exitScene}
           >
             Nice!
           </Typist>

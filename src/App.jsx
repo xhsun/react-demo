@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Question from './comp/Question.jsx';
 import Effects from './comp/Effects.jsx';
+import Draw from './comp/DrawScene.jsx';
 import './sass/main.css';
 import Clear from './assets/clear.svg';
 
@@ -52,6 +53,9 @@ class App extends Component {
         break;
       case 1:
         scene=<Effects next={this.next}/>;
+        break;
+      case 2:
+        scene=<Draw next={this.next}/>;
         break;
       default:
         scene=null;//TODO change this to last scene

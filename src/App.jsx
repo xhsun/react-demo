@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Intro from './comp/Intro.jsx';
+import Question from './comp/Question.jsx';
 import Effects from './comp/Effects.jsx';
 import './sass/main.css';
 import Clear from './assets/clear.svg';
@@ -45,7 +45,10 @@ class App extends Component {
     var scene=null;
     switch (currentStep) {
       case 0:
-        scene=<Intro next={this.next}/>;
+        scene=<Question next={this.next}
+          question="Hi there! \n How are you today?"
+          a1="Good" a2="Great"
+              response="Nice!"/>;
         break;
       case 1:
         scene=<Effects next={this.next}/>;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Typist from 'react-typist';
+import Question from './Question.jsx';
 
 class Effects extends Component {
   constructor(props) {
@@ -43,7 +44,10 @@ class Effects extends Component {
         scene=<Pops next={this.next}/>
         break;
       default:
-        scene=null;//TODO change this to last scene
+        scene=<Question next={this.props.next}
+          question="Hmm... \n We are getting a little ahead of ourselves... \n aren't we?"
+          a1="Yes" a2="No, just you"
+              response="OH Well..."/>;
     }
     return(
       <div className="base">

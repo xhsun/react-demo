@@ -1,8 +1,13 @@
+html, body, #root, .App, .base{
+  width: 100%;
+  height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   color: #212121;
+  background: #fafafa;
 }
 
 .Typist .Cursor {
@@ -19,11 +24,24 @@ body {
   }
 }
 
+.display-linebreak {
+  white-space: pre;
+}
+
 .center{
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -45%);
+}
+
+.center-text{
+  text-align: center;
+}
+
+.full-size{
+  width: 100%;
+  height: 100%;
 }
 
 .fade{

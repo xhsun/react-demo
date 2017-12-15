@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Typist from 'react-typist';
+import Response from './Response.jsx';
 
-class Intro extends Component {
+class Question extends Component {
   constructor(props){
     super(props);
 
     this.state={
-      classes: 'intro center',
+      classes: 'center-text center',
       hide: null,
       shouldShow: true,
       showFirst: false,
@@ -28,7 +29,7 @@ class Intro extends Component {
   }
 
   //for fade out animation and hide current scence
-  exitScence=()=>{
+  exitScene=()=>{
     var temp=this.state.classes;
     var trigger=this.hideSelf;
     temp+=' fade';
@@ -52,80 +53,33 @@ class Intro extends Component {
 
   render() {
     const isVisible = this.state.shouldShow;
-    // const isVisible=false;
 
     let content = (isVisible) ? (
       <div className={this.state.classes} onTransitionEnd={this.state.hide}>
         <h1>
           <Typist
+            className="display-linebreak"
             startDelay={1000}
             cursor={{ hideWhenDone: true }}
             onTypingDone={this.doneTyping}
           >
-            Hi there!
-            <br/>
-            How are you today?
+            {this.props.question.replace(/\\n/g, '\n')}
           </Typist>
         </h1>
 
         <div className='button-holder'>
           {this.state.showFirst ? (
-            <a className="button" onClick={this.exitScence}>Good</a>
+            <a className="button" onClick={this.exitScene}>{this.props.a1}</a>
           ) : null}
           {this.state.showSecond ? (
-            <a className="button" onClick={this.exitScence}>Great</a>
+            <a className="button" onClick={this.exitScene}>{this.props.a2}</a>
           ) : null}
         </div>
-      </div> ) : <IntroResponse next={this.props.next}/>;
+      </div> ) : <Response next={this.props.next} text={this.props.response}/>;
     return (
       <div>{content}</div>
     );
   }
 }
 
-class IntroResponse extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state={
-      classes: 'center',
-      hide: null,
-    };
-
-    this.exitScence=this.exitScence.bind(this);
-  }
-
-  //for fade out animation and call next after transition ended
-  exitScence(){
-    var time=1100;
-    var current=this;
-    var trigger=this.props.next;
-    var temp=this.state.classes;
-    temp+=' fade';
-    setTimeout(function() {
-            current.setState({
-              classes: temp,
-              hide: trigger
-            });
-        }, time);
-  }
-
-  render(){
-    return(
-      <div className={this.state.classes} onTransitionEnd={this.state.hide}>
-        <h1 className="intro-response">
-          <Typist
-            avgTypingSpeed={5}
-            startDelay={200}
-            cursor={{ hideWhenDone: true }}
-            onTypingDone={this.exitScence}
-          >
-            Nice!
-          </Typist>
-        </h1>
-      </div>
-    );
-  }
-}
-
-export default Intro;
+export default Question;

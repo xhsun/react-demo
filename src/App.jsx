@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Intro from './comp/Intro.jsx';
+import Question from './comp/Question.jsx';
+import Effects from './comp/Effects.jsx';
 import './sass/main.css';
 import Clear from './assets/clear.svg';
 
@@ -22,6 +23,15 @@ class App extends Component {
     this.setState({ step: newStep });
   }
 
+  //TODO debug only
+  back=()=>{
+    var temp=this.state.step;
+    if (temp>0) {
+      temp--;
+      this.setState({ step: temp });
+    }
+  }
+
   //reset canvas
   reset() {
     this.setState({ step: 0 });
@@ -30,15 +40,34 @@ class App extends Component {
   render() {
     // TODO change following link to the actual link of this project
     var projectLink="http://www.xhsun.me";
+
+    const currentStep=this.state.step;
+    var scene=null;
+    switch (currentStep) {
+      case 0:
+        scene=<Question next={this.next}
+          question="Hi there! \n How are you today?"
+          a1="Good" a2="Great"
+              response="Nice!"/>;
+        break;
+      case 1:
+        scene=<Effects next={this.next}/>;
+        break;
+      default:
+        scene=null;//TODO change this to last scene
+    }
     return (
       <div className="App">
         <a className="exit" href={projectLink}><img src={Clear} alt="exit"/></a>
-        {this.state.step === 0 ? (
-          <Intro next={this.next}/>
-        ) : null}
+        {scene}
 
-        <a onClick={this.reset}>Reset</a>
-        {this.state.step}
+        {/* TODO debug only */}
+        <div style={{position: 'absolute', top: 0+'px'}}>
+          <h3>Current Step: {this.state.step}</h3>
+          <a className="button" onClick={this.back}>Back</a>
+          <a className="button" onClick={this.next}>Next</a>
+        </div>
+
       </div>
     );
   }

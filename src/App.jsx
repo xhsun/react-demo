@@ -59,9 +59,12 @@ class App extends Component {
         {scene}
 
         {/* TODO debug only */}
-        <h3>Current Step: {this.state.step}</h3>
-        <a className="button" onClick={this.back}>Back</a>
-        <a className="button" onClick={this.next}>Next</a>
+        <div style={{position: 'absolute', top: 0+'px'}}>
+          <h3>Current Step: {this.state.step}</h3>
+          <a className="button" onClick={this.back}>Back</a>
+          <a className="button" onClick={this.next}>Next</a>
+        </div>
+
       </div>
     );
   }

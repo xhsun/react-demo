@@ -6,7 +6,7 @@ class Intro extends Component {
     super(props);
 
     this.state={
-      classes: 'intro center',
+      classes: 'center-text center',
       hide: null,
       shouldShow: true,
       showFirst: false,

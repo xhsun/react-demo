@@ -26,6 +26,10 @@ body {
   transform: translate(-50%, -45%);
 }
 
+.center-text{
+  text-align: center;
+}
+
 .fade{
   opacity: 0;
   transition: all 0.5s ease;

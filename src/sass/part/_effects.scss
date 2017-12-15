@@ -1,0 +1,28 @@
+.movement{
+  background: #81d4fa url(../assets/move.svg) repeat 0 0;
+  background-position: 40% 50%;
+  background-clip: text;
+  font-weight: 800;
+  font-size:6em;
+  text-transform: uppercase;
+  cursor: default;
+  animation: slide 20s linear infinite;
+  transition: color 1s ease-in, text-shadow 1s ease-in, opacity 1s ease-in;
+  
+  @-webkit-keyframes slide {
+      from { background-position: -400px 0; }
+      to { background-position: 0 0; }
+  }
+}
+
+.trans-text{
+  color: transparent;
+}
+
+.shadow{
+  text-shadow: 10px 10px 0px #212121;
+}
+
+.no-show{
+  opacity: 0;
+}

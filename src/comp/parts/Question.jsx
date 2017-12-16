@@ -58,7 +58,6 @@ class Question extends Component {
       <div className={this.state.classes} onTransitionEnd={this.state.hide}>
         <h1>
           <Typist
-            className="display-linebreak"
             startDelay={1000}
             cursor={{ hideWhenDone: true }}
             onTypingDone={this.doneTyping}

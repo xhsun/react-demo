@@ -24,6 +24,7 @@
 	height: 400px;
 	position: absolute;
 	top: -200px;
+  z-index: -1;
 	background: url(../assets/sun.svg) center no-repeat;
   transition: left 2s ease-in;
 }

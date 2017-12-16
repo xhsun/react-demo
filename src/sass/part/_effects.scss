@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Comic+Sans+MS");
-@import url('https://fonts.googleapis.com/css?family=Megrim');
-
-.no-show{
-  opacity: 0;
-}
+@import url("https://fonts.googleapis.com/css?family=Comic+Sans+MS|Megrim|Sigmar+One");
 
 .movement{
   background: #81d4fa url(../assets/move.svg) repeat 0 0;
@@ -15,11 +10,6 @@
   cursor: default;
   animation: slide 20s linear infinite;
   transition: color 1s ease-in, text-shadow 1s ease-in, opacity 1s ease-in;
-
-  @keyframes slide {
-      from { background-position: -400px 0; }
-      to { background-position: 0 0; }
-  }
 }
 
 .annoyance{
@@ -37,6 +27,14 @@
   text-transform: uppercase;
   font-size: 6em;
   cursor: default;
+}
+
+.shift-color{
+  font-family: 'Sigmar One', cursive;
+  text-transform: uppercase;
+  font-size: 6em;
+  cursor: default;
+  transition: opacity 2s ease-in;
 }
 
 .white-txt{
@@ -57,6 +55,39 @@
 
 .comic-san{
   font-family: 'Comic Sans MS', cursive;
+}
+
+/*Text color change from: https://codepen.io/hendrysadrak/pen/VLMOMJ*/
+.color-change {
+  $animationSteps: 20;
+  $animationDuration: 20;
+  $animationElement: span;
+  $animationElementsCount: 4;
+  $delayBetweenLetters: 0.2;
+
+  #{$animationElement} {
+    animation-name: anim-text-flow-keys;
+    animation-duration: #{$animationDuration}s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes anim-text-flow-keys {
+    @for $i from 0 through $animationSteps {
+      #{percentage($i * (1 / $animationSteps))} {
+        color: hsla(random(365), 60, 60, 1);
+      }
+    }
+  }
+
+  $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
+
+  @for $i from 1 through $animationElementsCount {
+    #{$animationElement}:nth-of-type(#{$i}) {
+      animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
+    }
+  }
 }
 
 .glow{

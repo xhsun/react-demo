@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Question from './Question.jsx';
+import Question from './parts/Question.jsx';
 import Pops from './effects/Glow.jsx';
 import Annoyance from './effects/Glitch.jsx';
 import Movement from './effects/Movement.jsx';
+import ColorShift from './effects/ColorShift.jsx'
 
 class Effects extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Effects extends Component {
   //Advance to next scene
   next(){
     var temp=this.state.stage;
-    if (temp<3) {
+    if (temp<4) {
       temp++;
       this.setState({ stage: temp });
     }
@@ -40,16 +41,21 @@ class Effects extends Component {
         scene=<Movement next={this.next}/>;
         break;
       case 1:
-        scene=<Annoyance next={this.next}/>
+        scene=<Annoyance next={this.next}/>;
         break;
       case 2:
-        scene=<Pops next={this.next}/>
+        scene=<Pops next={this.next}/>;
+        break;
+      case 3:
+        scene=(<Question next={this.next}
+          a1="Yes, we are" a2="No, just you"
+          response="OH Well..."
+               >
+        Hmm... <br/> We are getting a little ahead of ourselves... <br/> aren't we?
+      </Question>);
         break;
       default:
-        scene=<Question next={this.props.next}
-          question="Hmm... \n We are getting a little ahead of ourselves... \n aren't we?"
-          a1="Yes" a2="No, just you"
-              response="OH Well..."/>;
+        scene=<ColorShift next={this.props.next}/>;
     }
     return(
       <div className="base">

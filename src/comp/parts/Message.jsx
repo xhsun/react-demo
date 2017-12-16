@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Typist from 'react-typist';
 
-class Response extends Component {
+class Message extends Component {
   constructor(props) {
     super(props);
 
     this.state={
-      classes: 'center',
+      classes: 'center center-text',
       hide: null,
     };
 
@@ -15,11 +15,15 @@ class Response extends Component {
 
   //for fade out animation and call next after transition ended
   exitScene(){
-    var time=1100;
+    var time=1000;
     var current=this;
     var trigger=this.props.next;
     var temp=this.state.classes;
     temp+=' fade';
+    if (this.props.onShown != null) {
+      this.props.onShown.bind(this);
+      this.props.onShown();
+    }
     setTimeout(function() {
             current.setState({
               classes: temp,
@@ -31,14 +35,13 @@ class Response extends Component {
   render(){
     return(
       <div className={this.state.classes} onTransitionEnd={this.state.hide}>
-        <h1 className="intro-response">
+        <h1>
           <Typist
-            avgTypingSpeed={5}
-            startDelay={200}
+            startDelay={1000}
             cursor={{ hideWhenDone: true }}
             onTypingDone={this.exitScene}
           >
-            {this.props.text}
+            {this.props.children}
           </Typist>
         </h1>
       </div>
@@ -46,4 +49,4 @@ class Response extends Component {
   }
 }
 
-export default Response;
+export default Message;

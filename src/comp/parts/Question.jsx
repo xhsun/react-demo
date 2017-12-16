@@ -63,7 +63,7 @@ class Question extends Component {
             cursor={{ hideWhenDone: true }}
             onTypingDone={this.doneTyping}
           >
-            {this.props.question.replace(/\\n/g, '\n')}
+            {this.props.children}
           </Typist>
         </h1>
 
@@ -75,7 +75,7 @@ class Question extends Component {
             <a className="button" onClick={this.exitScene}>{this.props.a2}</a>
           ) : null}
         </div>
-      </div> ) : <Response next={this.props.next} text={this.props.response}/>;
+      </div> ) : <Response next={this.props.next} text={this.props.response} onResponse={this.props.onResponse}/>;
     return (
       <div>{content}</div>
     );

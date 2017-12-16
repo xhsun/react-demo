@@ -1,6 +1,7 @@
 html, body, #root, .App, .base{
   width: 100%;
   height: 100%;
+  overflow-y: hidden;
 }
 body {
   margin: 0;
@@ -44,6 +45,10 @@ body {
   height: 100%;
 }
 
+.no-show{
+  opacity: 0;
+}
+
 .fade{
   opacity: 0;
   transition: all 0.5s ease;
@@ -59,4 +64,9 @@ body {
   &:hover{
     opacity: 1;
   }
+}
+
+@keyframes slide {
+    from { background-position: -400px 0; }
+    to { background-position: 0 0; }
 }

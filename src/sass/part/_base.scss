@@ -9,6 +9,12 @@ body {
   font-family: sans-serif;
   color: #212121;
   background: #fafafa;
+  // background: #80d8ff;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
 .Typist .Cursor {
@@ -23,6 +29,10 @@ body {
       100% { opacity:1; }
     }
   }
+}
+
+.clickable{
+  cursor: pointer;
 }
 
 .display-linebreak {

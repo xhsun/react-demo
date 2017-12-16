@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Allura|Raleway');
+
+.ending-msg {
+  color: #fafafa;
+  font-size: 30pt;
+  transition: opacity 1s ease-in;
+}
+
+.name {
+  $neonBase: #FFF;
+  $neonColor: #ff8f00;
+  font-family: 'Allura', cursive;
+  font-size: 40pt;
+
+  &:hover {
+    animation: name-neon 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes name-neon {
+    from {
+      text-shadow: 0 0 10px $neonBase, 0 0 20px $neonBase, 0 0 30px $neonBase, 0 0 40px $neonColor, 0 0 70px $neonColor, 0 0 80px $neonColor, 0 0 100px $neonColor, 0 0 150px $neonColor;
+    }
+
+    to {
+      text-shadow: 0 0 5px $neonBase, 0 0 10px $neonBase, 0 0 15px $neonBase, 0 0 20px $neonColor, 0 0 35px $neonColor, 0 0 40px $neonColor, 0 0 50px $neonColor, 0 0 75px $neonColor;
+    }
+  }
+}
+
+.react {
+  $neonBase: #FFF;
+  $neonColor: #29b6f6;
+  font-family: 'Raleway', sans-serif;
+
+  &:hover {
+    animation: react-neon 1.5s ease-in-out infinite alternate;
+  }
+  @keyframes react-neon {
+    from {
+      text-shadow: 0 0 10px $neonBase, 0 0 20px $neonBase, 0 0 30px $neonBase, 0 0 40px $neonColor, 0 0 70px $neonColor, 0 0 80px $neonColor, 0 0 100px $neonColor, 0 0 150px $neonColor;
+    }
+
+    to {
+      text-shadow: 0 0 5px $neonBase, 0 0 10px $neonBase, 0 0 15px $neonBase, 0 0 20px $neonColor, 0 0 35px $neonColor, 0 0 40px $neonColor, 0 0 50px $neonColor, 0 0 75px $neonColor;
+    }
+  }
+}

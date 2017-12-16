@@ -25,13 +25,13 @@ class Effects extends Component {
   }
 
   //TODO debug only
-  back=()=>{
-    var temp=this.state.stage;
-    if (temp>0) {
-      temp--;
-      this.setState({ stage: temp });
-    }
-  }
+  // back=()=>{
+  //   var temp=this.state.stage;
+  //   if (temp>0) {
+  //     temp--;
+  //     this.setState({ stage: temp });
+  //   }
+  // }
 
   render(){
     const currentStage=this.state.stage;
@@ -62,11 +62,11 @@ class Effects extends Component {
         {scene}
 
         {/* TODO debug only */}
-        <div style={{position: 'absolute', top: 140+'px'}}>
+        {/* <div style={{position: 'absolute', top: 140+'px'}}>
           <h3>Current Stage: {this.state.stage}</h3>
           <a className="button" onClick={this.back}>Back</a>
           <a className="button" onClick={this.next}>Next</a>
-        </div>
+        </div> */}
 
       </div>
     );

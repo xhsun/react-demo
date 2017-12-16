@@ -22,13 +22,13 @@ class Draw extends Component {
   }
 
   //TODO debug only
-  back=()=>{
-    var temp=this.state.stage;
-    if (temp>0) {
-      temp--;
-      this.setState({ stage: temp });
-    }
-  }
+  // back=()=>{
+  //   var temp=this.state.stage;
+  //   if (temp>0) {
+  //     temp--;
+  //     this.setState({ stage: temp });
+  //   }
+  // }
 
   render(){
     const currentStage=this.state.stage;
@@ -37,9 +37,9 @@ class Draw extends Component {
       case 0:
       scene=(<Question next={this.next}
         a1="I Do" a2="I Don't"
-        response="Blue it is then!"
+        response="Then blue it is!"
         onResponse={this.props.sky}>
-        Say... <br/> Do you like blue? <br/> <span style={{color: '#80d8ff' }}>Sky blue</span> to be exact.
+        Say... <br/> Do you like blue? <br/> <span className="blue-txt">Sky blue</span> to be exact
       </Question>);
         break;
       case 1:
@@ -78,11 +78,11 @@ class Draw extends Component {
       <div className="base">
         {scene}
         {/* TODO debug only */}
-        <div style={{position: 'absolute', top: 140+'px'}}>
+        {/* <div style={{position: 'absolute', top: 140+'px'}}>
           <h3>Current Stage: {this.state.stage}</h3>
           <a className="button" onClick={this.back}>Back</a>
           <a className="button" onClick={this.next}>Next</a>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -51,7 +51,7 @@ class Effects extends Component {
           a1="Yes, we are" a2="No, just you"
           response="OH Well..."
                >
-        Hmm... <br/> We are getting a little ahead of ourselves... <br/> aren't we?
+          Hmm... <br/> We are getting a little ahead of ourselves... <br/> Aren't we?
       </Question>);
         break;
       default:

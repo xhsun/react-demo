@@ -1,8 +1,14 @@
 {
-  "main.css": "static/css/main.cb2fbee8.css",
-  "main.css.map": "static/css/main.cb2fbee8.css.map",
-  "main.js": "static/js/main.3da085c0.js",
-  "main.js.map": "static/js/main.3da085c0.js.map",
+  "main.css": "static/css/main.88b5d265.css",
+  "main.css.map": "static/css/main.88b5d265.css.map",
+  "main.js": "static/js/main.6d3dc965.js",
+  "main.js.map": "static/js/main.6d3dc965.js.map",
   "static/media/clear.svg": "static/media/clear.d26380c4.svg",
-  "static/media/move.svg": "static/media/move.ae7849a1.svg"
+  "static/media/island.svg": "static/media/island.95779684.svg",
+  "static/media/move.svg": "static/media/move.ae7849a1.svg",
+  "static/media/sun.svg": "static/media/sun.76382e8c.svg",
+  "static/media/tree.svg": "static/media/tree.62e7e324.svg",
+  "static/media/wave-dark.svg": "static/media/wave-dark.873b4df9.svg",
+  "static/media/wave-light.svg": "static/media/wave-light.d3b939e1.svg",
+  "static/media/wave-med.svg": "static/media/wave-med.12e8805e.svg"
 }
